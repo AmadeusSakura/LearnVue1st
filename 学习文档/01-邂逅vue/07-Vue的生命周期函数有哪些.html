@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<script>
+    // hook 钩子
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+        },
+        methods: {
+            increment: function () {
+                this.counter++;
+            },
+            subtraction: function () {
+                this.counter--;
+            }
+        },
+        beforeCreate: function () {
+
+        },
+        create: function () {
+            console.log('created');
+        },
+        mounted: function () {
+            console.log('mounted');
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>{{counter}}</h2>
+  <button v-on:click="increment">+</button>
+  <button v-on:click="decrement">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  // 在前端开发中，我们需要经常和用户交互
+  //      这个时候，我们就必须监听用户发生的事件，比如点击、拖拽、键盘事件等等
+  //      在Vue中如何监听事件内？使用v-on指令
+  // v-on介绍
+  //      作用：绑定事件监听器
+  //      缩写：@
+  //      预期：Function|Inline Statement|Object
+  //      参数：event
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生',
+      counter: 0,
+    },
+    methods: {
+      increment() {
+        this.counter++;
+      },
+      decrement() {
+        this.counter--;
+      }
+    }
+  })
+</script>
+</body>
+</html>

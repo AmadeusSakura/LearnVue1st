@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--  <h2 :style="key（属性名）:value（属性值）">{{message}}</h2>-->
+  <!--  50px必须加上单引号，否则当一个变量去解析-->
+  <h2 :style="{fontSize:'50px'}">{{message}}</h2>
+  <h2 :style="{fontSize:finalSize+'px',color:finalColor}">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  //我们可以利用v-bind:style来绑定一些CSS内联样式。
+  //在写CSS属性名的时候，比如font-size
+  //    我们可以使用驼峰式 (camelCase)  fontSize
+  //    或短横线分隔 (kebab-case，记得用单引号括起来) ‘font-size’
+  //绑定class有两种方式：
+  //    对象语法
+  //    数组语法
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生',
+      finalSize: 100,
+      finalColor: 'pink',
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数：{{counter}}</h2>
+    <button @click="increment">+</button>
+    <button @click="subtraction">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    // 语法糖：简写
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+        },
+        methods: {
+            increment: function () {
+                this.counter++;
+            },
+            subtraction: function () {
+                this.counter--;
+            }
+        }
+    })
+</script>
+</body>
+</html>

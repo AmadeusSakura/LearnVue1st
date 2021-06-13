@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <li v-for="(item,index) in movies" :class="{'active':tag==index}" @click='btnClick(index)' :title="item">{{item}}
+    </li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      tag: 0,
+      message: 'hello，树先生',
+      movies: ['海王', '海尔兄弟', '火影忍者', '死神'],
+    },
+    methods: {
+      btnClick: function (index) {
+        this.tag = index;
+      },
+      getClasses: function (index) {
+        return {active: index == this.tag}
+      }
+    }
+  })
+</script>
+</body>
+</html>

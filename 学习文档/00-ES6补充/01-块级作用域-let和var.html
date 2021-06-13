@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<script src="../js/vue.js"></script>
+<script>
+  // 事实上var的设计可以看成JavaScript语言设计上的错误. 但是这种错误多半不能修复和移除, 以为需要向后兼容.
+  //    大概十年前, Brendan Eich就决定修复这个问题, 于是他添加了一个新的关键字: let.
+  //    我们可以将let看成更完美的var
+  // 块级作用域
+  //    JS中使用var来声明一个变量时, 变量的作用域主要是和函数的定义有关.
+  //    针对于其他块定义来说是没有作用域的，比如if/for等，这在我们开发中往往会引起一些问题。
+
+  // ES5中的var是没有块级作用域的（if/for）
+  // ES6中的let是有块级作用域的（if/for）
+  // ES5之前因为if和for都没有块级作用域的概念，所以在很多时候，我们都必须借助于function的作用域来解决引用外面变量的问题
+  // ES6中，加入了let，let它是有if和for的块级作用域。
+  // 1.变量作用域：变量在什么范围内是可用的，
+  /*{
+    var name = 'why'
+  }
+  console.log(name);*/
+
+  // 2.没有块级作用域引起的问题:if的块级
+  /*var func;
+  if (true) {
+    var name1 = 'why1';
+    func = function () {
+      console.log(name);
+    }
+    // func();
+  }
+  name = 'kobe'
+  func()*/
+
+  // 2.没有块级作用域引起的问题:for的块级
+  // 为什么闭包可以解决问题：函数是一个作用域
+  /*var btns = document.querySelectorAll('button');
+  for (var i = 0; i < btns.length; i++) {
+    (function (i) {
+      btns[i].addEventListener('click', function () {
+        console.log('第' + i + '个按钮被点击');
+      })
+    })(i)
+  }*/
+
+  const btns = document.querySelectorAll('button');
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      console.log('第' + i + '个按钮被点击');
+    })
+  }
+</script>
+</body>
+</html>

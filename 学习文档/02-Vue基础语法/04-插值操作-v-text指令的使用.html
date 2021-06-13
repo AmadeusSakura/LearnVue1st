@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}!</h2>
+  <h2 v-text="message">!</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  // v-text作用和Mustache一致：
+  // v-text通常情况下，接受一个string类型
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生'
+    }
+  })
+</script>
+</body>
+</html>

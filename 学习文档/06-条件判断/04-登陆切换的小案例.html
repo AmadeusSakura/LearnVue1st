@@ -5,6 +5,32 @@
   <title>Title</title>
 </head>
 <body>
-
+<div id="app">
+  <h2>{{message}}</h2>
+  <span v-if="isUser">
+    <label for="userName">用户账号:</label>
+  <input type="text" id="userName" placeholder="用户账号">
+  </span>
+  <span v-else>
+    <label for="userEmail">用户邮箱:</label>
+  <input type="text" id="userEmail" placeholder="用户邮箱">
+  </span>
+  <button @click="btnClick">切换类型</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生',
+      isUser: true,
+    },
+    methods: {
+      btnClick() {
+        this.isUser = !this.isUser;
+      }
+    }
+  })
+</script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <!--  1.选择一个-->
+  <select name="abc" id="1" v-model="fruit">
+    <option value="苹果1">苹果1</option>
+    <option value="苹果2">苹果2</option>
+    <option value="苹果3">苹果3</option>
+    <option value="苹果4">苹果4</option>
+  </select>
+  <h2>您选择的水果是:{{fruit}}</h2>
+
+  2.选择多个 <select name="abc" id="2" v-model="fruits" multiple>
+  <option value="苹果1">苹果1</option>
+  <option value="苹果2">苹果2</option>
+  <option value="苹果3">苹果3</option>
+  <option value="苹果4">苹果4</option>
+</select>
+  <h2>您选择的水果是:{{fruits}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  // 和checkbox一样，select也分单选和多选两种情况。
+  // 单选：只能选中一个值。
+  //    v-model绑定的是一个值。
+  //    当我们选中option中的一个时，会将它对应的value赋值到mySelect中
+  // 多选：可以选中多个值。
+  // v-model绑定的是一个数组。
+  // 当选中多个值时，就会将选中的option对应的value添加到数组mySelects中
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生',
+      fruit: '',
+      fruits:[],
+    }
+  })
+</script>
+</body>
+</html>

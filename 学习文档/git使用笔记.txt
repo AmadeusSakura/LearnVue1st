@@ -1,0 +1,12 @@
+git提交数据
+git status
+git stash pop
+git add .
+git commit -m '名称'
+git push
+
+git 获取分支
+git fetch
+
+Git提交记住用户名和密码：
+git config --global credential.helper store

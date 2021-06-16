@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+1.插槽的基本使用<slot></slot>
+2.插槽的默认值<slot>button</slot>
+3.如果有多个值，同时放到组件进行替换时，一起作为替换元素
+-->
+<div id="app">
+  <h2>{{message}}</h2>
+  <cpn></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是组件</h2>
+    <p>我是组件，1111</p>
+    <slot>
+      <button>按钮</button>
+    </slot>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  // 当子组件的功能复杂时，子组件的插槽可能并非是一个。
+  //    比如我们封装一个导航栏的子组件，可能就需要三个插槽，分别代表左边、中间、右边。
+  //    那么，外面在给插槽插入内容时，如何区分插入的是哪一个呢？
+  //    这个时候，我们就需要给插槽起一个名字
+  // 如何使用具名插槽呢？
+  //    非常简单，只要给slot元素一个name属性即可
+  //    <slot name='myslot'></slot>
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生'
+    },
+    components: {
+      cpn: {
+        template: `#cpn`
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--父组件模板-->
+<div id="app">
+  <h2>{{message}}</h2>
+  <!--  监听子组件发射的事件-->
+  <cpn @itemclick="cpnClick"></cpn>
+</div>
+<!--子组件模板-->
+<template id="cpn">
+  <div>
+    <h2></h2>
+    <button v-for="item in categories" @click="btnClick(item)">
+      {{item.name}}
+    </button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  // props用于父组件向子组件传递数据，还有一种比较常见的是子组件传递数据或事件到父组件中。
+  // 我们应该如何处理呢？这个时候，我们需要使用自定义事件来完成。
+  // 什么时候需要自定义事件呢？
+  //    当子组件需要向父组件传递数据时，就要用到自定义事件了。
+  //    我们之前学习的v-on不仅仅可以用于监听DOM事件，也可以用于组件间的自定义事件。
+  // 自定义事件的流程：
+  //    在子组件中，通过$emit()来触发事件。
+  //    在父组件中，通过v-on来监听子组件事件
+
+  // 1.字组件
+  const cpn = {
+    template: `#cpn`,
+    data() {
+      return {
+        categories: [
+          {id: 'aaa1', name: '热门推荐1'},
+          {id: 'aaa2', name: '热门推荐2'},
+          {id: 'aaa3', name: '热门推荐3'},
+          {id: 'aaa4', name: '热门推荐4'},
+        ]
+      }
+    },
+    methods: {
+      btnClick(item) {
+        // console.log(item);
+        // 发射事件:自定义事件
+        this.$emit('itemclick', item)
+      }
+    }
+  }
+  // 2.父组件
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello，树先生'
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      cpnClick(item) {
+        console.log('cpnClick', item);
+      }
+    }
+  })
+</script>
+</body>
+</html>

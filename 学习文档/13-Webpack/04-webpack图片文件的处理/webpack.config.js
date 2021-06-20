@@ -44,6 +44,7 @@ module.exports = {
               // 当加载的图片小于limit的时候，会将图片编译成base64字符串形式
               // 当加载的图片大于limit的时候，需要使用file-loader进行加载
               limit: 13000,
+              name:'img/[name].[hash:8].[ext]'
             },
           },
         ],

@@ -10,3 +10,6 @@ import {name,age,height} from "./js/info";
 console.log(name);
 console.log(age);
 console.log(height);
+
+// 3.依赖css文件
+require('./css/normal.css')

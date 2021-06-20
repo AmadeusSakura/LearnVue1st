@@ -49,14 +49,18 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   test: /\.(png|jpe?g|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //     },
-      //   ],
-      // },
+      {
+        test: /\.m?js$/,
+        // exclude:排除
+        // include:包括
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015']
+          }
+        }
+      },
     ],
   },
 }

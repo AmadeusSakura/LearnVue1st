@@ -15,6 +15,25 @@ module.exports = {
         // 使用多个loader时，是从右向左
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.less$/i,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                strictMath: true,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
 }

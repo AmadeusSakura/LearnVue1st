@@ -69,6 +69,8 @@ module.exports = {
     ],
   },
   resolve:{
+    // 省略指定扩展名
+    extensions:['.js','.css','.vue'],
     // alias:别名
     alias:{
       'vue$':'vue/dist/vue.esm.js'

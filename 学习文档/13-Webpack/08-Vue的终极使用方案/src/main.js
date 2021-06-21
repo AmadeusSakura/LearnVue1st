@@ -21,21 +21,30 @@ document.writeln('hello,树先生!')
 // 5.使用vue进行开发
 import Vue from 'vue'
 
-new Vue({
-  el: '#app',
+const App = {
   template: `
     <div>
     <h2>{{ message }}</h2>
     <button @click="btnClick">按钮</button>
     <h2>{{ name }}</h2>
     </div>`,
-  data: {
-    message: 'hello,树先生!',
-    name: 'coderwhy'
+  data() {
+    return {
+      message: 'hello,树先生!',
+      name: 'coderwhy'
+    }
   },
   methods: {
     btnClick() {
 
     },
+  }
+}
+
+new Vue({
+  el: '#app',
+  template: `<App/>`,
+  components: {
+    App
   }
 })

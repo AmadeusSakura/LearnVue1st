@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/学习文档/13-Webpack/07-创建Vue时template和el关系/node_modules/vue/src/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/学习文档/13-Webpack/08-Vue的终极使用方案/node_modules/vue/src/platforms" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

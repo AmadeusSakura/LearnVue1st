@@ -817,15 +817,25 @@ document.writeln('hello,树先生!');
 // 5.使用vue进行开发
 
 
-new _vue2.default({
-  el: '#app',
+var App = {
   template: '\n    <div>\n    <h2>{{ message }}</h2>\n    <button @click="btnClick">\u6309\u94AE</button>\n    <h2>{{ name }}</h2>\n    </div>',
-  data: {
-    message: 'hello,树先生!',
-    name: 'coderwhy'
+  data: function data() {
+    return {
+      message: 'hello,树先生!',
+      name: 'coderwhy'
+    };
   },
+
   methods: {
     btnClick: function btnClick() {}
+  }
+};
+
+new _vue2.default({
+  el: '#app',
+  template: '<App/>',
+  components: {
+    App: App
   }
 });
 
